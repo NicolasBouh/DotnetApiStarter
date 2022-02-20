@@ -1,31 +1,32 @@
 <div class="tui-row tui-space_top-5">
-  <form class="tui-col_xs-10 tui-col_md-6 tui-col_lg-6 align_center">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"
+    class="tui-col_xs-10 tui-col_md-6 tui-col_lg-6 align_center">
     <h3 class="tui-form__header tui-form__header_margin-top_none">
       Register to our website
     </h3>
 
     <div class="tui-form__row">
-      <tui-input formControlName="">
+      <tui-input formControlName="firstName" required>
         Enter your First Name
         <input tuiTextfield />
       </tui-input>
     </div>
 
     <div class="tui-form__row">
-      <tui-input formControlName="">
+      <tui-input formControlName="lastName" required>
         Enter your Last Name
         <input tuiTextfield />
       </tui-input>
     </div>
 
     <div class="tui-form__row">
-      <tui-input formControlName="">
+      <tui-input formControlName="email" required>
         Enter your Email
         <input tuiTextfield />
       </tui-input>
     </div>
     <div class="tui-form__row">
-      <tui-input-password formControlName="">
+      <tui-input-password formControlName="password" required>
         Enter your Password
         <input tuiTextfield />
       </tui-input-password>
