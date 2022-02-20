@@ -1,10 +1,16 @@
 import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {TuiRootModule, TuiDialogModule, TuiNotificationsModule, TUI_SANITIZER} from "@taiga-ui/core";
+import {
+  TuiRootModule,
+  TuiDialogModule,
+  TuiNotificationsModule,
+  TUI_SANITIZER,
+  TuiNotificationsService
+} from "@taiga-ui/core";
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -13,11 +19,15 @@ import {APP_ROUTES} from "./app.routes";
 import {CustomTaigaModule} from "./custom-taiga.module";
 import {AuthModule} from "./auth/auth.module";
 import {SharedModule} from "./shared/shared.module";
+import {ErrorInterceptor} from "./core/interceptors/error.interceptor";
+import {CoreModule} from "./core/core.module";
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -25,6 +35,7 @@ import {SharedModule} from "./shared/shared.module";
     FormsModule,
 
     // Todo remove shared module
+    CoreModule,
     SharedModule,
     AuthModule,
 
@@ -33,11 +44,17 @@ import {SharedModule} from "./shared/shared.module";
     }),
     TuiRootModule,
     BrowserAnimationsModule,
-    TuiDialogModule,
     TuiNotificationsModule,
     CustomTaigaModule
 ],
-  providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
+  providers: [
+    TuiNotificationsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    {provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

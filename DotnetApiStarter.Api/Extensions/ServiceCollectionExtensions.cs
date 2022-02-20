@@ -11,6 +11,17 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddApiServices(this IServiceCollection services,
         WebApplicationBuilder builder)
     {
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy(name: "DefaultPolicy",
+                corsPolicy =>
+                {
+                    corsPolicy.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+        });
+        
         builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
         
         builder.Services.AddControllers();
