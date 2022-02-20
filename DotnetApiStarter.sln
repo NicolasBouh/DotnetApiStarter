@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetApiStarter.Api", "Dot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetApiStarter.Infrastructure", "DotnetApiStarter.Infrastructure\DotnetApiStarter.Infrastructure.csproj", "{BE5F7079-8604-4AD6-942E-01C20BF7D379}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetApiStarter.ClientApp", "DotnetApiStarter.ClientApp\DotnetApiStarter.ClientApp.csproj", "{E2F1D65D-26FD-45DD-A6F3-93DC833B9917}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{BE5F7079-8604-4AD6-942E-01C20BF7D379}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE5F7079-8604-4AD6-942E-01C20BF7D379}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE5F7079-8604-4AD6-942E-01C20BF7D379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F1D65D-26FD-45DD-A6F3-93DC833B9917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F1D65D-26FD-45DD-A6F3-93DC833B9917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2F1D65D-26FD-45DD-A6F3-93DC833B9917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2F1D65D-26FD-45DD-A6F3-93DC833B9917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

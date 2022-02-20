@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+/* Text Utilities */
+.info-text {
+  color: var(--tui-text-03);
+}
+
+/* Placement Utilities */
+.float_right {
+  float: right;
+}
+
+.text-align_right {
+  text-align: right;
+}
+
+.align_center {
+  margin: 0 auto;
+}
+
+.flex-gap_24 {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
